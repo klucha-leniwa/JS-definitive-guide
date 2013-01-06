@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <style>
+            #strict-mode {
+                color: #0000FF;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="strict-mode">
+        </div>
+        <script src="inherits.js"></script>
+        <script>
+        'use strict'
+        //TODO CZEMU x.prototype zwraca undefined
+        //????????
+
+        //TODO czemu Date.prototype zwraca invalid date
+        //?????????
+        var div = document.getElementById('strict-mode');
+
+        console.log(Object.prototype)
+
+        var obj = {}
+        var a = 5
+        obj.prototype = a
+        console.log(obj.__proto__)
+
+        var date = new Date();
+        console.log(date.__proto__)
+
+        var str = new String();
+        console.log(str.__proto__)
+
+        var x = {x:1};
+        var y = inherit(x)
+        y.__proto__.a = function () {}
+        console.log(x)
+
+        var cons = function() {};
+        var obj = new Number();
+        cons.prototype = obj
+        console.log(cons.prototype)
+        </script>
+    </body>
+</html>

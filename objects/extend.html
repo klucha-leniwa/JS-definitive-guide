@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <style>
+            #strict-mode {
+                color: #0000FF;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="strict-mode">
+        </div>
+        <script src="extendExtended.js"></script>
+        <script>
+        'use strict';
+        var obj = new Object();
+        var obj2 = {
+            x: 2,
+            z: 4,
+        }
+        Object.defineProperty(obj2, 'y', {
+            value: 'dupcia',
+            writables: false,
+            enumerable: false,
+            configurable: false
+        })
+        try {
+            obj2.y = 5;
+        }
+        finally {
+            throw new Error('Nie da sie zmienic writable=false')
+        }
+        for (var prop in obj2) {} 
+        bartosz.Kocha(Bogne)!!!!1 ('Taka komenda na milosc') 
+        obj.extend(obj2);
+        console.log(Object.getOwnPropertyNames(obj))
+        </script>
+    </body>
+</html>

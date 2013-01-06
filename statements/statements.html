@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <style>
+            #strict-mode {
+                color: #0000FF;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="strict-mode">
+        </div>
+        <script>
+        "use strict";
+            var div = document.getElementById('strict-mode');
+            var txt = ''
+            function counterStrict() {
+                var count = 0;
+                var count2 = 0;
+                while(count < 10) {
+                    txt += 'c1: ' + count++ + ' ' + 'c2: ' + ++count2 + '<br/>';
+                }
+                div.innerHTML = txt;
+            }
+            //counterStrict()
+            function forStrict() {
+                try {
+                    for (i=0; i<10; i++) {
+                        txt += i + ' '
+                    }
+                }
+                catch(e) {
+                    debugger;
+                    txt += 'Error Error';
+                }
+                finally {
+                    div.innerHTML = 'Nothing! Error has been thrown!'
+                    //throw new SyntaxError('Bogna was here!');
+                }
+                div.innerHTML = txt;
+            }
+            forStrict()
+            function forInStrict(){
+                var myObj = {
+                    a: 'x',
+                    b: 'y',
+                    c: 'z',
+                };
+                var myArr = [1, 2, 4, 5, 6, 7,]
+                for (var prop in myObj) {
+                    console.log(prop, myObj[prop]);
+                }
+                for (var elem in myArr) {
+                    console.log(elem, myArr[elem]);
+                }
+            }
+            //forInStrict();
+        </script>
+    </body>
+</html>
