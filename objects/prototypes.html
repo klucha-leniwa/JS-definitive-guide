@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <style>
+            #strict-mode {
+                color: #0000FF;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="strict-mode">
+        </div>
+        <script>
+        'use strict';
+        var div = document.getElementById('strict-mode');
+        var txt = '';
+
+        var Page = function() {
+            //One method to define object is by using object literal
+            //square object is such a example
+            var objLiteral = {
+                square: {
+                    x: 5,
+                    y: 7,
+                    area: function() {
+                        return this.x * this.y
+                    }
+                }
+            };
+            //Second method is to use constructor. Thanks to using constructors 
+            //You can create objects with the same properties but with different values.
+            var objConstructor = {
+                point: function() {
+                    this.x = x;
+                    this.y = y;
+                    this.place = function() {
+                        return 'Point cordinates: x:' + this.x + ' y:' + this.y;
+                    }
+                },
+            };
+        };
+
+        console.log(Page.prototype)
+        //Now page has getObjects() method which returns only page properties
+        Page.prototype.getObjects = function() {
+            var result = [];
+            for (var prop in this) {
+                if (this.hasOwnProperty(prop)) result.push(prop);
+            };
+            return result;
+        };
+
+        var page = new Page();
+        var page2 = new Page();
+        page.x = 2;
+
+        txt += 'Page\'s instance properties: ';
+        txt += page.getObjects()
+        div.innerHTML = txt
+        </script>
+    </body>
+</html>
