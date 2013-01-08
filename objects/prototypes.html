@@ -39,7 +39,7 @@
             };
         };
 
-        console.log(Page.prototype)
+        //console.log(Page.prototype)
         //Now page has getObjects() method which returns only page properties
         Page.prototype.getObjects = function() {
             var result = [];
@@ -56,6 +56,17 @@
         txt += 'Page\'s instance properties: ';
         txt += page.getObjects()
         div.innerHTML = txt
+
+        var Shape = function(sides, vertices) {
+            this.sides = sides;
+            this.vertices = vertices
+        }
+
+        var triangle = new Shape(3, 3)
+        console.log(Shape.prototype === triangle.__proto__)
+
+        //triangle __proto__ is equal to its prototype (from what it inherits values)
+        console.log(triangle.__proto__ === Object.getPrototypeOf(triangle))
         </script>
     </body>
 </html>
