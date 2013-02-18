@@ -1,0 +1,71 @@
+<html>
+<head>
+	<script type="text/javascript" src='cachedProperties.js'></script>
+	<script type="text/javascript" src="applyCallCallee.js"></script>
+    <script type="text/javascript" src='funWithBind.js'></script>
+</head>
+	<body>
+		<div id='result'>
+		</div>
+	<script type="text/javascript">
+	'use strict';
+	factorial[1] = 1;
+	factorial(5);
+	//console.log(factorial[4])
+
+
+	function standardFactorial(n) {
+		if (n == 0) {
+			return 1
+		} else {
+			return standardFactorial(n-1)*n;
+		}
+	}
+
+	//console.log(standardFactorial(4))
+
+	var data = [1,2,3,4,5]
+
+	var sampleObj = {
+		'a': 1,
+		'b': 2,
+		'c': 3,
+		'data': [2,3,4,59],
+		'max': function() {
+			console.log(this)
+			return Math.max.apply(this, this.data);
+		}
+
+	}
+	//console.log(sampleObj.max())
+
+	//console.log(callUsage());
+
+	//console.log(callee())
+
+	var anotherObj = {
+		cal: function() {
+			return callee()
+		},
+	}
+
+	//console.log(anotherObj.cal())\
+	var f = function(x) {
+		return x*x;
+	}
+
+	var newObj = f.bind(sampleObj, 4);
+	console.log(newObj)
+
+    var obj1 = {
+        x: 3
+    }
+
+    var obj2 = {
+        x: 4
+    }
+
+    var g = playWithBind.bind(obj1)
+    console.log(g())
+	</script>
+	</body>

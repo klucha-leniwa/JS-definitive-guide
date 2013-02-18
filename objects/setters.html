@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <style>
+            #strict-mode {
+                color: #0000FF;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="strict-mode">
+        </div>
+        <script>
+        'use strict';
+        var div = document.getElementById('strict-mode');
+        var txt = '';
+        var myObj = {
+            z: 1,
+            get x() {
+                return this.z;
+            },
+            set x(newValue) {
+                this.z = newValue > this.z || this.z*2;
+            },
+        }
+        myObj.x = 10;
+        console.log(Object.getOwnPropertyDescriptor(myObj, "x"))
+        txt += myObj.x + '<br />';
+
+        var myConstructor = function() {
+            Object.defineProperties(this, {
+                'test': {
+                    "get": function() {
+                        return 'aa' + Math.floor(Math.random()*5);
+                    },
+                    "set": function(newValue) {
+                        this.test = 'a';
+                    }
+                },
+            }
+        )};
+        myConstructor.prototype.myFunc = function() {
+            return 'hello';
+        }
+        var objCons = new myConstructor();
+        txt += objCons.test + '<br />';
+        console.log(objCons.myFunc())
+        div.innerHTML = txt;
+        </script>
+    </body>
+</html>

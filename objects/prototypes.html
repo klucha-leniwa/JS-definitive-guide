@@ -29,7 +29,7 @@
             //Second method is to use constructor. Thanks to using constructors 
             //You can create objects with the same properties but with different values.
             var objConstructor = {
-                point: function() {
+                Point: function(x, y) {
                     this.x = x;
                     this.y = y;
                     this.place = function() {
@@ -37,6 +37,10 @@
                     }
                 },
             };
+
+            this.getConstructor = function() {
+                return objConstructor;
+            }
         };
 
         //console.log(Page.prototype)

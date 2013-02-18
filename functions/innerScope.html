@@ -1,0 +1,25 @@
+<html>
+	<body>
+		<script type="text/javascript">
+			'use strict';
+			var o = {
+				m: function() {
+					var self = this;
+					console.log(this === o);
+					f();
+
+					function f() {
+						/*
+						 * in inner function this keyword is unaccessible
+						 * if using strict mode this keyword is undefined
+						 * and when strict mode is not used, this is equal to global object for instance browser window object 
+						 */
+						console.log(this);
+						console.log(self === o);
+					}
+				}
+			}
+			o.m();
+		</script>
+	</body>
+</html>

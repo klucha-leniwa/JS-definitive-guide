@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script type="text/javascript" src="../objects/inherits.js"></script>
+        <script type="text/javascript" src="augumentation.js"></script>
+    </head>
+    <body>
+        <div id='result'>
+        </div>
+        <script type="text/javascript" src="range.js"></script>
+        <script type="text/javascript">
+            'use strict';
+            var func = function(x){
+                console.log(x*2);
+            }
+            /*
+            var result = document.getElementById('result');
+            var txt = '';
+            var r = range(1,3)
+            var ansIncludes = r.includes(2);
+            txt += ansIncludes + '<br>';
+            r.foreach(func);
+            console.log(r.toString())
+            result.innerHTML = txt;
+            */
+            var number = 7;
+            number.times(function() {console.log('A')}, number);
+        </script>
+    </body>
+</html>
